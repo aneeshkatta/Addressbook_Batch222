@@ -8,19 +8,21 @@ using System.Xml.Linq;
 
 namespace Addressbook_Batch222
 {
-    internal class Addressbook
+    internal class AddressBook
     {
-         public static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Address address = new Address();
             address.Entry();
-            address.Edit();
+            address.DeleteContact();
+
         }
 
 
+
     }
-
-
 }
-    
+
+
+
 
