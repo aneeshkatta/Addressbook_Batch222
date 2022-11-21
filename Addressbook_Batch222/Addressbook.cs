@@ -44,19 +44,7 @@ namespace Addressbook_Batch222
             Console.WriteLine("Enter your ZipCode");
             contact.Zip = Console.ReadLine();
             Addressbook.Add(contact);
-
-            foreach (var data in Addressbook)
-            {
-                Console.WriteLine("---------Contact Details--------");
-                Console.WriteLine("First_Name " + data.First_Name);
-                Console.WriteLine("Last_Name " + data.Last_Name);
-                Console.WriteLine("Present_Address " + data.Present_Address);
-                Console.WriteLine("City " + data.City);
-                Console.WriteLine("State " + data.State);
-                Console.WriteLine("Email_Id " + data.Email_Id);
-                Console.WriteLine("Phone_Number " + data.Phone_Number);
-                Console.WriteLine("Zip " + data.Zip);
-            }
+                      
 
 
         }
