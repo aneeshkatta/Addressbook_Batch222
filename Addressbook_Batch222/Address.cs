@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,12 +32,17 @@ namespace Addressbook_Batch222
             Console.WriteLine("Enter your Email_Id");
             contact.email_Id = Console.ReadLine();
             contacts.Add(contact);
+
+        }
+        public void Display()
+        {
             foreach (var Contact in contacts)
             {
                 Console.WriteLine("---------Contact Details--------");
+                Console.WriteLine("Contact number:{0}", contacts.IndexOf(Contact) + 1);
                 Console.WriteLine(Contact.ToString());
             }
-        }   
+        }
         public void Edit()
         {
             Console.WriteLine("Enter the name of contact do you want to edit : ");
@@ -85,7 +91,6 @@ namespace Addressbook_Batch222
                             data.phone_Number = PhoneNumber;
                             break;
                         case 8:
-
                             Console.WriteLine("Please enter the email : ");
                             string Email = Convert.ToString(Console.ReadLine());
                             data.email_Id = Email;
@@ -102,14 +107,19 @@ namespace Addressbook_Batch222
                 {
                     Console.WriteLine("Contact not found{0}", name);
                 }
-
             }
-
         }
-       
-        
-
-
+        public void AddMultipleContact()
+        {
+            Console.WriteLine("Enter Number of Contacts to be Added:");
+            int input = Convert.ToInt32(Console.ReadLine());
+            while (input > 0)
+            {
+                Entry();
+                input--;
+            }
+            Display();
+        }
     }
 }
 
