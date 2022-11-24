@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Addressbook_Batch222
 {
@@ -14,6 +13,7 @@ namespace Addressbook_Batch222
         {
             Address address = new Address();
             address.AddMultipleContact();
+            address.Display();
         }
     }
 }
