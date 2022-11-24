@@ -11,7 +11,7 @@ namespace Addressbook_Batch222
     {
         List<Contact> contacts = new List<Contact>();
         Contact contact;
-        Dictionary<string, List<Contact>> system = new Dictionary<string, List<Contact>>();
+        Dictionary<string, List<Contact>> addressbookSystem=new  Dictionary<string, List<Contact>>();
         public void Entry()
         {
             contact = new Contact();
@@ -47,11 +47,12 @@ namespace Addressbook_Batch222
         }
         public void Display()
         {
-            foreach (var keyValuePair in system.Keys)
+            foreach (var keyValuePair in addressbookSystem.Keys)
             {
-                Console.WriteLine(keyValuePair);
-                foreach (Contact data in system[keyValuePair])
+                Console.WriteLine("Book Name:"+keyValuePair);
+                foreach (Contact data in addressbookSystem[keyValuePair])
                 {
+                    Console.WriteLine($"************** Contact Details in Book :{keyValuePair} Display **************");
                     Console.WriteLine(data.first_Name);
                     Console.WriteLine(data.last_Name);
                     Console.WriteLine(data.present_Address);
@@ -75,7 +76,7 @@ namespace Addressbook_Batch222
                 Entry();
                 input--;
             }
-            system.Add(bookname, contacts);
+            addressbookSystem.Add(bookname, contacts);
         }
 
     }
