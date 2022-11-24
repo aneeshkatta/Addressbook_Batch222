@@ -38,9 +38,9 @@ namespace Addressbook_Batch222
             Console.WriteLine("Enter your State");
             contact.state = Console.ReadLine();
             Console.WriteLine("Enter your ZipCode");
-            contact.zip = Console.ReadLine();
+            contact.zip = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter your Phone_Number");
-            contact.phone_Number = Console.ReadLine();
+            contact.phone_Number = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter your Email_Id");
             contact.email_Id = Console.ReadLine();
             contacts.Add(contact);
