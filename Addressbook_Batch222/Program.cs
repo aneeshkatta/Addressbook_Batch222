@@ -11,7 +11,7 @@ namespace Addressbook_Batch222
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome To  Book System!");
+            Console.WriteLine("Welcome To Address  Book System!");
             Dictionary<string, AdressBookBuilder> adressBookDictionary = new Dictionary<string, AdressBookBuilder>();
             while (true)
             {
@@ -43,7 +43,7 @@ namespace Addressbook_Batch222
                     {
                         Console.WriteLine(k);
                     }
-                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 for exit");
+                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n  5.Search a Person by City or state \n 6 for exit");
                     int choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
                     {
@@ -93,6 +93,9 @@ namespace Addressbook_Batch222
                             adressBookDictionary[displayContactInAdressBook].DisplayContact();
                             break;
                         case 5:
+                            FindPersonbystateorCity(adressBookDictionary);
+                            break;
+                        case 6:
                             Environment.Exit(0);
                             break;
                         default:
@@ -125,6 +128,27 @@ namespace Addressbook_Batch222
             Console.WriteLine("Enter email_Id= ");
             String email_Id = Console.ReadLine();
             adressBookBuilder.AddContact(first_Name, last_Name, present_Address, city, state, zip, phone_Number, email_Id);
+        }
+        public static void FindPersonbystateorCity(Dictionary<string, AdressBookBuilder> builder)
+        {
+            Console.WriteLine("Enter the city or state where you want to find that person ");
+            string searchplace = Console.ReadLine();
+            foreach (var element in builder)
+            {
+                List<string> listOfPersonFoundInPlace = element.Value.FindPerson(searchplace);
+                if (listOfPersonFoundInPlace.Count == 0)
+                {
+                    Console.WriteLine("No person in that city/state of adress book  = " + element.Key);
+                }
+                else
+                {
+                    Console.WriteLine("The person in that city/state of adress book = " + element.Key + " = ");
+                    foreach (var person in listOfPersonFoundInPlace)
+                    {
+                        Console.WriteLine(person);
+                    }
+                }
+            }
         }
     }
 }

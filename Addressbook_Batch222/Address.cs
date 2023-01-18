@@ -34,7 +34,7 @@ namespace Addressbook_Batch222
             else
                 return false;
         }
-        public  void EditContact(string editName)
+        public void EditContact(string editName)
         {
             foreach (var data in contacts)
             {
@@ -127,10 +127,27 @@ namespace Addressbook_Batch222
                 Console.WriteLine("email_Id = " + contact.email_Id);
             }
         }
+        public List<string> FindPerson(string place)
+        {
+            List<string> personFound = new List<string>();
+            foreach (Contact contact in contacts.FindAll(e => (e.city.Equals(place))).ToList())
+            {
+                string name = contact.first_Name + " " + contact.last_Name;
+                personFound.Add(name);
+            }
+            if (personFound.Count == 0)
+            {
+                foreach (Contact contact in contacts.FindAll(e => (e.state.Equals(place))).ToList())
+                {
+                    string name = contact.first_Name + " " + contact.last_Name;
+                    personFound.Add(name);
+                }
+            }
+            return personFound;
+        }
 
     }
 }
-
 
 
 
